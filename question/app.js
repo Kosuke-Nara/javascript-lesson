@@ -7,20 +7,18 @@ console.log(greet);
 
 // Q2 配列
 let languages = ['JavaScript', 'PHP', 'Ruby', 'Python', 'Go'];
-let favLang = '私の好きな言語は' + languages[0] + 'です。' + '次は' + languages[3] + 'を勉強してみたいです。';
-console.log(favLang);
+let template = `私の好きな言語は${languages[0]}です。次は${languages[3]}を勉強してみたいです。`
+console.log(template);
 
 
 //Q3 オブジェクト
-/*
 let user = {
-  name: 'John',
-  age: 26,
-  bloodType: 'A',
-  favorite: 'card',
+    name: 'John',
+    age: 26,
+    bloodType: 'A',
+    favorite: 'card',
 };
 console.log(user.age);
-*/
 
 
 //Q4 配列×オブジェクト
@@ -45,13 +43,19 @@ console.log(playerList[1].favorites[1]);
 
 
 // Q5 四則演算
-let playerListAgesum = 81;
-console.log(playerListAgesum / 3);
+let totalAge = 0;
+for (let i = 0; i < playerList.length; i++) {
+    totalAge += playerList[i].age;
+}
+let averageAge = totalAge / playerList.length;
+console.log(averageAge);
 
 
 // Q6 関数
-let sayHello = 'Hello';
-console.log(sayHello);
+let sayHello = function () {
+    console.log('Hello');
+}
+sayHello();
 
 let sayWorld = function () {
     console.log('World');
@@ -61,18 +65,13 @@ sayWorld();
 
 
 // Q7 メソッド
-let user = {
-    name: 'John',
-    age: 26,
-    bloodType: 'A',
-    favorite: 'card',
-    birthday: '2000-09-27',
-    sayHello: function () {
-        console.log('Hello！');
-    }
+user.birthday = '2020-09-27';
+console.log(user.birthday);
+
+user.sayHello = function () {
+    console.log('Hello！');
 };
 user.sayHello();
-
 
 // Q8 引数
 let calc = {
@@ -143,13 +142,11 @@ console.log(numbers);
 // 応用編 Q5 for × if
 let mixed = [4, '2', 5, '8', '9', 0, 1];
 for (let i = 0; i < mixed.length; i++) {
-    if (typeof mixed[i] === 'number') {
-        if (mixed[i] % 2 === 0) {
-            console.log('even');
-        } else {
-            console.log('odd');
-        }
-    } else {
+    if (typeof mixed[i] !== 'number') {
         console.log('not number');
+    } else if (mixed[i] % 2 === 0) {
+        console.log('even');
+    } else {
+        console.log('odd');
     }
 }
