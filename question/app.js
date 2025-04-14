@@ -52,9 +52,9 @@ console.log(averageAge);
 
 
 // Q6 関数
-let sayHello = function () {
+function sayHello() {
     console.log('Hello');
-}
+};
 sayHello();
 
 let sayWorld = function () {
